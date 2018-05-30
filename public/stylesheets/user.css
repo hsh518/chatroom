@@ -1,0 +1,7 @@
+form{width: 500px;position: relative;right: 0;left: 0;top: 0;bottom: 0;margin: auto;border:1px solid #999;padding: 20px ;margin: 100px}
+h1{font-size: 28px;text-align: center}
+label{display: block;line-height: 50px}
+label .tag{width: 100px;text-align: left;display: inline-block}
+label input{line-height: 30px;width: 200px}
+.button{text-align: center;padding-top: 20px}
+button{padding: 5px 20px;font-size: 16px}

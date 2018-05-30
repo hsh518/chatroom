@@ -1,0 +1,46 @@
+extends ../layout
+
+block link
+  link(rel='stylesheet',href='/stylesheets/chat.css')
+
+block content
+  div.chatbox
+    div.scrollbox
+      ul      
+    div.chat
+      input.main
+      button(type="button") 发送
+  script(type="text/javascript" src="https://lib.baomitu.com/socket.io/2.1.0/socket.io.dev.js")
+  script (src="https://code.jquery.com/jquery-1.11.1.js")
+  script(type="text/javascript").
+    let Imain=$('.main');
+    let Oli=$('.scrollbox ul')
+
+    let socket = io('ws://192.168.16.101:3001');
+    socket.on('connecting',function(){
+      console.log('正在连接');  
+    })
+    socket.on('connect',function(){
+      console.log('连接成功');
+    })
+    socket.on('disconnect', function() {
+      console.log("与服务其断开");
+    });
+    socket.on('chat message',function(msg){
+      msg.forEach((item,index)=>{
+        Oli.append('<li><h1>'+item.username+'<h1/><p>'+item.main+'<p/></<li/>')
+      })
+      setTimeout(()=>{
+        Oli[0].scrollIntoView(false)
+      },0)
+      
+    })
+    socket.on('new message',function(msg){
+      Oli.append('<li><h1>'+msg.username+'<h1/><p>'+msg.main+'<p/></<li/>')
+      Oli[0].scrollIntoView(false)
+    })
+    $('button').click(()=>{
+      socket.emit('message',{main:Imain.val(),username:'#{username}'});
+      Imain.val('');
+    })
+  

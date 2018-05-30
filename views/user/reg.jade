@@ -1,0 +1,17 @@
+extends ../layout
+
+block link
+  link(rel='stylesheet', href='/stylesheets/user.css')
+
+block content
+  form(action='/login/lg' method='post')
+    h1 用户注册
+    label
+      span.tag 用户名:
+      input.username(name="username")
+    label
+      span.tag 密码:
+      input.password(name="password") 
+    label.button
+      button 提交
+    a(href=base_url+"/login/lg") 已注册，直接登录

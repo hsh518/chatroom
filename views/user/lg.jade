@@ -1,0 +1,17 @@
+extends ../layout
+
+block link
+  link(rel='stylesheet', href='/stylesheets/user.css')
+
+block content
+  form(action='/chatroom/index' method='post')
+    h1 用户登录
+    label
+      span.tag 用户名:
+      input.username(name="username" value=username)
+    label
+      span.tag 密码:
+      input.password(name="password" value=password)
+    label.button
+      button 登录
+    a(href=base_url+"/login/reg") 注册

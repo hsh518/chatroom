@@ -1,0 +1,8 @@
+.chatbox{width: 400px;margin: 0 auto;margin-top: 200px;border:1px solid #999;}
+.scrollbox{height: 600px;overflow-y: scroll}
+ul{list-style: none}
+li{border-bottom: 1px solid #aaa}
+.chat{height: 50px;line-height: 50px;border-top:1px solid #999;padding: 0 20px}
+.chat input{line-height: 30px;width: 300px}
+.chat button{line-height: 30px;padding: 0 10px;float: right;margin-top: 10px}
+h1{font-size: 20px;color: slategray}
